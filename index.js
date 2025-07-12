@@ -21,7 +21,14 @@ http
     res.write("<html>");
 
     res.write("<head>Html response</head>");
-    res.write("<body><h1>Response of nodejs</h1></body>");
+
+    if (req.url === "/ab") {
+      res.write("<body><h2>ab page</h2></body>");
+    } else if (req.url === "/home") {
+      res.write("<body><h2>home page</h2></body>");
+    } else {
+      res.write("<body><h1>Response of nodejs</h1></body>");
+    }
     res.write("</html>");
     res.end(); // end the response
   })
