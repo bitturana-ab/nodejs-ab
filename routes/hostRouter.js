@@ -1,7 +1,7 @@
 const express = require("express");
 const hostRouter = express.Router();
 // get request hanler
-hostRouter.get("/host/contact-us", (req, res, next) => {
+hostRouter.get("/contact-us", (req, res, next) => {
   console.log("contact-us middleware");
   res.send(`<h1>
     Contact us!
@@ -15,7 +15,7 @@ hostRouter.get("/host/contact-us", (req, res, next) => {
     `);
 });
 // post or submit form handler
-hostRouter.post("/host/contact-us", (req, res, next) => {
+hostRouter.post("/contact-us", (req, res, next) => {
   console.log("contact-us post middleware", req.body);
   res.send(`<h1>Thank you for contacting us ${req.body.name}!</h1>`);
 });
