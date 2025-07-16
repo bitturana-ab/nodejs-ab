@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 
 const app = express();
 
@@ -22,10 +23,14 @@ app.get("/contact-us", (req, res, next) => {
     </form>
     `);
 });
+// use body-parser middleware to parse form data
+
+app.use(bodyParser.urlencoded());
+
 // post or submit form handler
 app.post("/contact-us", (req, res, next) => {
-  console.log("contact-us post middleware");
-  res.send(`<h1>Thank you for contacting us!</h1>`);
+  console.log("contact-us post middleware", req.body);
+  res.send(`<h1>Thank you for contacting us ${req.body.name}!</h1>`);
 });
 
 app.listen(port, () => {
